@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# TODO check if we need sudo rights
+# and fail fast if so
+
 cd ..
-DOTS_ROOT = `pwd`
+DOTS_ROOT=`pwd`
 
 # TODO Check for existing files
 # and back them up
