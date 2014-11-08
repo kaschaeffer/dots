@@ -10,7 +10,7 @@ DOTS_ROOT=`pwd`
 # and back them up
 
 symlink() {
-    printf "Linking $1..."
+    printf "Linking $ROOT/$1 -> $1 ..."
     ln -s $1 $ROOT/$1
     printf "Done!\n"
 }
