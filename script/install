@@ -3,22 +3,27 @@
 # TODO check if we need sudo rights
 # and fail fast if so
 
-cd ..
-DOTS_ROOT=`pwd`
+CURR_DIR=`pwd`
+DIR=`dirname $0`
+SCRIPT_PATH=`cd $DIR;pwd`
+DOTS_HOME_PATH=`cd $DIR;cd ..;pwd`
 
 # TODO Check for existing files
 # and back them up
 
 symlink() {
-    printf "Linking $ROOT/$1 -> $1 ..."
-    ln -s $1 $ROOT/$1
+    # Remove any existing symlinks so this
+    # operation is idempotent
+    rm $HOME/$1
+    printf "Linking $HOME/$1 -> $PWD/$1...\n"
+    ln -s $PWD/$1 $HOME/$1
     printf "Done!\n"
 }
 
-cd $DOTS_ROOT/bash
+cd $DOTS_HOME_PATH/bash
 symlink .bash_profile
 
-cd $DOTS_ROOT/vim
+cd $DOTS_HOME_PATH/vim
 symlink .vimrc
 
 
