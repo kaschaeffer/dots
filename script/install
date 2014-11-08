@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd ..
+DOTS_ROOT = `pwd`
+
+# TODO Check for existing files
+# and back them up
+
+symlink() {
+    ln -s $0 $ROOT/$0
+}
+
+cd $DOTS_ROOT/bash
+symlink .bash_profile
+
+cd $DOTS_ROOT/vim
+symlink .vimrc
+
+
+
