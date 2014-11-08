@@ -7,7 +7,9 @@ DOTS_ROOT = `pwd`
 # and back them up
 
 symlink() {
-    ln -s $0 $ROOT/$0
+    printf "Linking $1..."
+    ln -s $1 $ROOT/$1
+    printf "Done!\n"
 }
 
 cd $DOTS_ROOT/bash
