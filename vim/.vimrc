@@ -1,47 +1,49 @@
-set nocursorline " don't highlight current line
+" don't care about vi compatibility
+set nocompatible
+
+" syntax highlighting
+syntax enable
+
+" set up Vundle
+filetype on " TODO why is this necessary?
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" install Vundle bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+" NOT SURE WHY...
+call vundle#end()
+filetype plugin indent on
+
 
 " keyboard shortcuts
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+nnoremap <leader>d :NERDTreeToggle<CR>
 inoremap jj <ESC>
 
-" colorscheme badwolf
+" redraw lazily to speed up macros
+set lazyredraw
+set number
+set showmatch
+set nocursorline " don't highlight current line
+set matchtime=1 "TODO play with this number
 
-" " gui settings
-" if (&t_Co == 256 || has('gui_running'))
-"   if ($TERM_PROGRAM == 'iTerm.app')
-"     colorscheme badwolf
-"   else
-"     colorscheme badwolf
-"   endif
-" endif
+" this should be set to 4 for python files
+set shiftwidth=2 " normal mode indentation commands use 4 spaces
+set softtabstop=2 " insert mode tab and backspace use 4 spaces
 
-" let g:airline_theme = 'badwolf'
+let g:NERDTreeWinPos = "left"
 
-" " Disambiguate ,a & ,t from the Align plugin, making them fast again.
-" "
-" " This section is here to prevent AlignMaps from adding a bunch of mappings
-" " that interfere with the very-common ,a and ,t mappings. This will get run
-" " at every startup to remove the AlignMaps for the *next* vim startup.
-" "
-" " If you do want the AlignMaps mappings, remove this section, remove
-" " ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
-" function! s:RemoveConflictingAlignMaps()
-"   if exists("g:loaded_AlignMapsPlugin")
-"     AlignMapsClean
-"   endif
-" endfunction
-" command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
-" silent! autocmd VimEnter * RemoveConflictingAlignMaps
+" TODO add autosaving functionality
+" TODO add fast python linter
+" TODO add git-gitter back?
 
-" let g:NERDTreeWinPos = "left"
-
-" let g:gitgutter_enabled = 1
-
-" " Bubble single lines
-" " nmap <leader>u ddkP
-" " nmap <leader>d ddp
-
-" autocmd QuickFixCmdPost *grep* cwindow
-
-" TODO should only set this for python
-set shiftwidth=4                                             " normal mode indentation commands use 4 spaces
-set softtabstop=4                                            " insert mode tab and backspace use 4 spaces
+colorscheme gotham
