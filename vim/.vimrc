@@ -19,6 +19,7 @@ endif
 call vundle#end()
 filetype plugin indent on
 
+let mapleader = ","
 
 " keyboard shortcuts
 noremap <C-h> <C-w>h
@@ -26,8 +27,13 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-nnoremap <leader>d :NERDTreeToggle<CR>
 inoremap jj <ESC>
+
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>u muviwU`u
+
+" python
+nnoremap <leader>t :Dispatch nosetests -v<CR>
 
 " redraw lazily to speed up macros
 set lazyredraw
@@ -42,8 +48,17 @@ set softtabstop=2 " insert mode tab and backspace use 4 spaces
 
 let g:NERDTreeWinPos = "left"
 
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+" autosave
+autocmd CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
+
 " TODO add autosaving functionality
 " TODO add fast python linter
 " TODO add git-gitter back?
+" TODO add map for reloading vim
+" TODO add asynchronous arc build
+" TODO add map for backgrounding vim while also saving first
+" TODO fix buggy airline bar
 
 colorscheme gotham
