@@ -25,3 +25,24 @@ eval "$(rbenv init -)"
 
 # rvm hack
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# TODO
+#   1. set up some indicator for background processes?
+#   2. set up some indicator for both git and hg status (green/yellow/red)
+#   3. fancy, simple unicode symbolic prompt
+#   4. consider putting on next line (show prompt on line above?)
+#   5. whether build is dirty?
+#
+#   just use powerline-shell?
+#   or promptline (the airline version of powerline)
+#
+#   display cool stuff on startup
+#   push notifications for builds?
+#   some indication of whether on remote machine?
+#   symbols that literally represent branching
+#   use U+21f8 (arrows with ticks) to represent background processes
+#   >> foo << status?
+#   
+#   important: make prompt stand out from text!
+#   mess with lscolors?
+#   remap ls to tree and expand out intelligently if few folders? (useful for java)
