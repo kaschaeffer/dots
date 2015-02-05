@@ -60,5 +60,12 @@ autocmd CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
 " TODO add asynchronous arc build
 " TODO add map for backgrounding vim while also saving first
 " TODO fix buggy airline bar
+" TODO add shortcut for python main
+"   boilerplate
+" TODO add abbreviations for standard
+"   open-source copywrite
+" TODO add shortcuts for upcasing
+" TODO add mapping for converting camel <-->
+" snake case
 
-colorscheme gotham
+colorscheme base16-atelierlakeside
