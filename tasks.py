@@ -42,7 +42,9 @@ def backup(dotfile):
 
 @task
 def install_vim_plugins():
-    pass
+    # TODO should get the return code from this
+    # and respond appropriately
+    run('vim -c "PluginInstall" -c "qall!"')
     
 # TODO automatically add ":" to list of copy characters in iterm
 # brew intall vim to get clipboard support
