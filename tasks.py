@@ -44,3 +44,5 @@ def backup(dotfile):
 def install_vim_plugins():
     pass
     
+# TODO automatically add ":" to list of copy characters in iterm
+# brew intall vim to get clipboard support

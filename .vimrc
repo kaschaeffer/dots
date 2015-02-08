@@ -53,6 +53,9 @@ autocmd VimResized * :wincmd =
 " autosave
 autocmd CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
 
+" fix copy/paste
+set clipboard=unnamed
+
 " TODO add autosaving functionality
 " TODO add fast python linter
 " TODO add git-gitter back?
