@@ -6,3 +6,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'whatyouhide/vim-gotham'
+
+" tmux
+Plugin 'edkolev/tmuxline.vim'
