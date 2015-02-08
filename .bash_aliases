@@ -1,4 +1,3 @@
-BREW_ROOT=`brew --prefix`
 
 # java
 alias listjava='/usr/libexec/java_home -V'
