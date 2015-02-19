@@ -36,6 +36,7 @@ nnoremap <leader>u muviwU`u
 nnoremap <leader>t :Dispatch nosetests -v<CR>
 
 " redraw lazily to speed up macros
+" note: this interferes with airline being drawn correctly on startup
 set lazyredraw
 set number
 set showmatch
@@ -46,15 +47,36 @@ set matchtime=1 "TODO play with this number
 set shiftwidth=2 " normal mode indentation commands use 4 spaces
 set softtabstop=2 " insert mode tab and backspace use 4 spaces
 
+" make backspace work correctly
+set backspace=2
+
+" fix slow O
+set noesckeys
+
 let g:NERDTreeWinPos = "left"
 
 " automatically rebalance windows on vim resize
-autocmd VimResized * :wincmd =
+augroup balancewindows
+  autocmd!
+  autocmd VimResized * :wincmd =
+augroup END
+
 " autosave
-autocmd CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
+augroup autosave
+  autocmd!
+  autocmd CursorHoldI,CursorHold,BufLeave <buffer> silent! :update
+augroup END
 
 " fix copy/paste
 set clipboard=unnamed
+
+" use pretty airline font patch
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16'
+
+" TODO needed for airline (explain why!)
+set laststatus=2
+
 
 " TODO add autosaving functionality
 " TODO add fast python linter
