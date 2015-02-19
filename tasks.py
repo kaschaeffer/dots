@@ -48,3 +48,12 @@ def install_vim_plugins():
     
 # TODO automatically add ":" to list of copy characters in iterm
 # brew intall vim to get clipboard support
+
+@task
+def install_vim_powerline_fonts():
+    # TODO make sure no virtualenv is set when running this
+    run('git clone git@github.com:powerline/fonts.git')
+    os.chdir('fonts')
+    run('./install.sh')
+    os.chdir('..')
+    # TODO need some way of actually choosing these fonts in iterm
