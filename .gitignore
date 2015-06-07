@@ -1,5 +1,8 @@
 # don't check in backed up dotfiles
 /.backup
 
+# ignore swap files
+*.swp
+
 # python
 *.pyc
