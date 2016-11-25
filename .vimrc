@@ -77,6 +77,10 @@ let g:airline_theme='base16'
 " TODO needed for airline (explain why!)
 set laststatus=2
 
+" limelight
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
 
 " TODO add autosaving functionality
 " TODO add fast python linter
@@ -94,20 +98,61 @@ set laststatus=2
 " snake case
 
 " colorscheme base16-atelierlakeside
-" colorscheme base16-paraiso
+" colorscheme blackboard
 " colorscheme base16-londontube
-colorscheme solarized
+set background=dark
+" set background=light
+" colorscheme onedark
+" colorscheme birds-of-paradise
+" colorscheme base16-paraiso
+" colorscheme badwolf
+" colorscheme gotham
+" colorscheme solarized
+" colorscheme seoul256
+colorscheme base16-codeschool
+" colorscheme base16-solarized
+" colorscheme base16-ateliersulphurpool
+" colorscheme base16-atelierforest
+" colorscheme base16-ateliersavanna
+" colorscheme base16-railscasts
+" colorscheme base16-bespin
+" colorschem japanesque
 
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" golang
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gdv <Plug>(go-doc-vertical)
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 0
+
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_structs = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_build_constraints = 1
+
+" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["python", "c"],
-    \ "passive_filetypes": ["java"] }
+    \ "active_filetypes": ["python", "c", "go"],
+    \ "passive_filetypes": ["java", "scala"] }
+let g:syntastic_python_checkers = ["flake8", "mypy"]
+let g:syntastic_cpp_compiler_options = ' -std=c++14 -Wall'
+
+let g:syntastic_go_checkers = ["go", "golint", "govet", "errcheck"]
+
+function Reading()
+  Limelight
+  Goyo
+endfunction
+
+command! Reading call Reading()

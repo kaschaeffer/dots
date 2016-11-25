@@ -23,3 +23,6 @@ setjava8
 
 # set up virtualenvwrapper
 source "$BREW_ROOT/bin/virtualenvwrapper.sh"
+
+export LC_ALL=en_US.utf-8 
+export LANG="$LC_ALL"

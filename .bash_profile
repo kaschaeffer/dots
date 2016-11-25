@@ -3,7 +3,7 @@ set -o vi
 
 # useful aliases
 # TODO move this to .bash_aliases
-alias ls='ls -G'
+alias ls='ls -l --color=auto'
 
 # git tools
 alias gco='git checkout'
